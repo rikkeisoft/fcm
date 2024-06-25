@@ -173,7 +173,12 @@ class FCM
   def manage_topics_relationship(topic, registration_ids, action)
     body = { to: "/topics/#{topic}", registration_tokens: registration_ids }
 
-    for_uri(INSTANCE_ID_API) do |connection|
+    extra_headers = {
+      'Authorization' => "Bearer #{jwt_token}",
+      'access_token_auth' => "true"
+    }
+
+    for_uri(INSTANCE_ID_API, extra_headers) do |connection|
       response = connection.post("/iid/v1:batch#{action}", body.to_json)
       build_response(response)
     end
