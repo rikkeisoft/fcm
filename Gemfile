@@ -5,4 +5,4 @@ gem 'rake'
 gem 'rspec'
 gem 'webmock'
 gem 'ci_reporter_rspec'
-gem 'googleauth'
+gem 'googleauth', "~> 1.2.0"
