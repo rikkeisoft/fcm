@@ -50,7 +50,7 @@ class FCM
   def send_notification_v1(message)
     return if @project_name.empty?
 
-    post_body = { 'message': message }
+    post_body = { 'message' => message }
     extra_headers = {
       'Authorization' => "Bearer #{jwt_token}"
     }
